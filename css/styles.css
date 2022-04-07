@@ -5,6 +5,11 @@ html {
   scroll-behavior: smooth;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 *,
 *::before,
 *::after {
@@ -17,24 +22,19 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+  font-family: "Alata", "Arial", sans-serif;
+  font-size: 15px;
+  line-height: 167%;
   background-color: #fff;
   color: #222;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
 
 /* CONTAINER  */
 .container {
   width: 100%;
-  max-width: 1200px;
-  padding-left: 50px;
-  padding-right: 50px;
+  max-width: 1150px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -42,5 +42,115 @@ img {
 
 /* MAIN-CONTENT */
 .main-content {
-flex-grow: 1;
+  flex-grow: 1;
 }
+
+/* HEADER */
+.site-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  height: auto;
+  background-image: url("../img/man-in-car.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.site-header-container {
+}
+
+.site-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 64px;
+  padding-bottom: 0;
+}
+
+.site-logo {
+  display: flex;
+}
+
+.site-logo:hover {
+  opacity: 0.8;
+}
+
+.site-logo:active {
+  opacity: 0.6;
+}
+
+.site-header-logo-img {
+}
+
+.sitenav {
+  font-style: normal;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.sitenav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sitenav-item:not(:last-child) {
+  margin-right: 32px;
+}
+
+.sitenav-link {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.sitenav-link:hover {
+  opacity: 0.6;
+}
+
+.sitenav-link:active {
+  border-bottom: 2px solid #979797;
+}
+
+.site-header-content {
+  max-width: 650px;
+  padding-top: 130px;
+  padding-bottom: 146px;
+
+}
+
+.site-header-heading {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 38px;
+  font-family: "Josefin Sans", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 72px;
+  line-height: 97%;
+  color: #fff;
+  text-transform: uppercase;
+  border: 2px solid #fff;
+}
+
+
+/* SITE-FOOTER */
+.site-footer {
+  background-color: #000;
+}
+
+/* RETINA BACKGROUND */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+  .site-header {
+    background-image: url("../img/man-in-car@2x.jpg");
+  }
