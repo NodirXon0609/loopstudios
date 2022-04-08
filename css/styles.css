@@ -100,14 +100,16 @@ body {
   display: block;
   color: #fff;
   text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.4s ease;
 }
 
 .sitenav-link:hover {
-  opacity: 0.6;
+  border-color: #979797;
 }
 
 .sitenav-link:active {
-  border-bottom: 2px solid #979797;
+  opacity: 0.6;
 }
 
 .site-header-content {
@@ -128,6 +130,114 @@ body {
   color: #fff;
   text-transform: uppercase;
   border: 2px solid #fff;
+}
+
+
+/* MAIN-CONTENT */
+.main-content {
+  padding-top: 160px;
+  padding-bottom: 184px;
+  background-color: #fff;
+}
+.main-content-top {
+  display: flex;
+  align-items: flex-end;
+}
+
+.main-content-top-img {
+  width: 731px;
+  height: 500px;
+  background-image: url("../img/man-wearing-vr.jpg");
+}
+
+.main-content-top-info {
+  width: 541px;
+  height: auto;
+  margin-left: -155px;
+  background-color: #fff;
+}
+
+.main-content-top-report {
+  margin: 96px 0 0 96px;
+}
+
+.main-content-top-heading, .main-content-gallery-heading {
+  font-family: "Josefin Sans", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: #000;
+}
+.main-content-top-text {
+  font-style: normal;
+  color: #000;
+  margin-top: 25px;
+  margin-bottom: 0;
+  opacity: 0.5;
+}
+.main-content-gallery {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.main-content-gallery-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 184px;
+  margin-bottom: 0;
+}
+
+.main-content-gallery-button {
+  display: inline-block;
+  padding: 12px 42px 12px 37px;
+  border: 1px solid #000;
+  font-size: 14px;
+  line-height: 100%;
+  font-weight: 400;
+  background-color: #fff;
+  color:#000;
+  text-decoration: none;
+  transition: background-color 0.4s ease,
+  color 0.4s ease;
+}
+
+.main-content-gallery-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.main-content-gallery-imgs {
+  padding-top: 80px;
+}
+
+.main-content-gallery-img {
+  display: inline-block;
+  width: 256px;
+  height: 450px;
+  background-image: url("../img/deep_earth.jpg");
+}
+
+.main-content-gallery-img:hover {
+  opacity: 0.75071;
+  cursor: pointer;
+ }
+
+.main-content-gallery-inform {
+  color: #fff;
+  margin: 0;
+  width: 106px;
+  padding-left: 40px;
+  padding-top: 354px;
+  font-family: "Josefin Sans", "Arial", sans-serif;
+  font-size: 32px;
+  line-height: 100%;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 
@@ -152,16 +262,22 @@ body {
   list-style: none;
 }
 
-.site-footer-item:not(:last-child) {
-  margin-right: 16px;
+.site-footer-item {
+  display: flex;
+  transition: border-color 0.4s ease;
+  border-bottom: 2px solid transparent;
 }
 
 .site-footer-item:hover {
-  opacity: 0.6;
+  border-color: #979797;
 }
 
 .site-footer-item:active {
-  border-bottom: 2px solid #979797;
+  opacity: 0.6;
+}
+
+.site-footer-item:not(:last-child) {
+  margin-right: 16px;
 }
 
 .site-footer-bottom {
@@ -190,3 +306,8 @@ only screen and (                min-resolution: 2dppx) {
   .site-header {
     background-image: url("../img/man-in-car@2x.jpg");
   }
+
+  .main-content-top-img {
+    background-image: url("../img/man-wearing-vr@2x.jpg");
+  }
+}
