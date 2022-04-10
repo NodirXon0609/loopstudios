@@ -1,3 +1,29 @@
+/* CUSTOM-PROPS */
+:root {
+  --heading-font-stack: "Josefin Sans", "Arial", sans-serif;
+}
+
+
+/* FONT-FACE */
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("../fonts/JosefinSans-Light.woff2") format("woff2"),
+  url("../fonts/JosefinSans-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alata";
+  src: url("../fonts/Alata-Regular.woff2") format("woff2"),
+  url("../fonts/Alata-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 /* GLOBAL */
 html {
   box-sizing: border-box;
@@ -26,13 +52,13 @@ body {
   font-size: 15px;
   line-height: 167%;
   background-color: #fff;
-  color: #222;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /* CONTAINER  */
 .container {
   width: 100%;
-  max-width: 1150px;
+  max-width: 1154px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
@@ -55,7 +81,8 @@ body {
   background-image: url("../img/man-in-car.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center bottom;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 .site-header-top {
@@ -63,11 +90,13 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-top: 64px;
-  padding-bottom: 0;
+  padding-bottom: 64px;
 }
 
 .site-logo {
   display: flex;
+  margin-right: 32px;
+  transition: opacity 0.4s ease;
 }
 
 .site-logo:hover {
@@ -78,6 +107,14 @@ body {
   opacity: 0.6;
 }
 
+.site-logo-img {
+  width: 192px;
+  height: 32px;
+  object-fit: contain;
+}
+
+
+/* SITENAV */
 .sitenav {
   font-style: normal;
   font-weight: 400;
@@ -86,10 +123,10 @@ body {
 
 .sitenav-list {
   display: flex;
-  align-items: center;
-  list-style: none;
   padding: 0;
   margin: 0;
+  align-items: center;
+  list-style: none;
 }
 
 .sitenav-item:not(:last-child) {
@@ -97,33 +134,39 @@ body {
 }
 
 .sitenav-link {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: #fff;
   text-decoration: none;
   border-bottom: 2px solid transparent;
   transition: border-bottom 0.4s ease;
 }
 
-.sitenav-link:hover {
-  border-color: #979797;
+.sitenav-link::after {
+  width: 45%;
+  height: 2px;
+  margin-top: 8px;
+  background-color: transparent;
+  content: "";
+  transition: background-color 0.4s ease;
 }
 
-.sitenav-link:active {
-  opacity: 0.6;
+.sitenav-link:hover::after{
+  background-color: #fff;
 }
 
 .site-header-content {
+  width: 100%;
   max-width: 650px;
-  padding-top: 130px;
+  padding-top: 60px;
   padding-bottom: 146px;
-
 }
 
 .site-header-heading {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
   padding: 38px;
-  font-family: "Josefin Sans", "Arial", sans-serif;
+  font-family: var(--heading-font-stack);
   font-weight: 300;
   font-size: 72px;
   line-height: 97%;
@@ -135,50 +178,48 @@ body {
 
 /* MAIN-CONTENT */
 .main-content {
-  padding-top: 160px;
-  padding-bottom: 184px;
   background-color: #fff;
+  margin-bottom: 184px;
 }
+
 .main-content-top {
   display: flex;
   align-items: flex-end;
+  padding-top: 160px;
+  padding-bottom: 92px;
 }
 
 .main-content-top-img {
+  flex-shrink: 0;
   width: 731px;
   height: 500px;
-  background-image: url("../img/man-wearing-vr.jpg");
+  object-fit: cover;
 }
 
 .main-content-top-info {
   width: 541px;
-  height: auto;
-  margin-left: -155px;
+  padding-top: 96px;
+  padding-left: 96px;
+  margin-left: -161px;
   background-color: #fff;
 }
 
-.main-content-top-report {
-  margin: 96px 0 0 96px;
-}
-
-.main-content-top-heading, .main-content-gallery-heading {
-  font-family: "Josefin Sans", "Arial", sans-serif;
-  font-style: normal;
+.main-content-top-heading {
+  font-family: var(--heading-font-stack);
   font-weight: 300;
   font-size: 48px;
   line-height: 100%;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 25px;
   text-transform: uppercase;
   color: #000;
 }
+
 .main-content-top-text {
-  font-style: normal;
-  color: #000;
-  margin-top: 25px;
+  margin-top: 0;
   margin-bottom: 0;
-  opacity: 0.5;
 }
+
 .main-content-gallery {
   margin-top: 0;
   margin-bottom: 0;
@@ -188,20 +229,35 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 184px;
+  margin-top: 92px;
   margin-bottom: 0;
+}
+
+.main-content-gallery-heading {
+  font-family: var(--heading-font-stack);
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: #000;
 }
 
 .main-content-gallery-button {
   display: inline-block;
-  padding: 12px 42px 12px 37px;
+  padding: 13px;
+  min-width: 157px;
   border: 1px solid #000;
   font-size: 14px;
   line-height: 100%;
   font-weight: 400;
+  letter-spacing: 5px;
+  text-align: center;
   background-color: #fff;
   color:#000;
   text-decoration: none;
+  text-transform: uppercase;
   transition: background-color 0.4s ease,
   color 0.4s ease;
 }
@@ -212,40 +268,125 @@ body {
 }
 
 .main-content-gallery-imgs {
+  display: flex;
+  flex-wrap: wrap;
   padding-top: 80px;
+  margin-left: -30px;
+  margin-bottom: -30px;
 }
 
+/* MAIN-CONTENT-GALLERY-IMG */
 .main-content-gallery-img {
   display: inline-block;
   width: 256px;
   height: 450px;
-  background-image: url("../img/deep_earth.jpg");
-}
-
-.main-content-gallery-img:hover {
-  opacity: 0.75071;
-  cursor: pointer;
- }
-
-.main-content-gallery-inform {
-  color: #fff;
-  margin: 0;
-  width: 106px;
-  padding-left: 40px;
-  padding-top: 354px;
-  font-family: "Josefin Sans", "Arial", sans-serif;
+  object-fit: cover;
+  padding: 354px 47px 32px 40px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  font-weight: 300;
   font-size: 32px;
   line-height: 100%;
-  font-weight: 300;
+  font-family: var(--heading-font-stack);
   text-transform: uppercase;
+  background-repeat: no-repeat;
+  color: #fff;
 }
 
+/* MAIN-CONTENT-GALLERY-IMG-FIRST */
+.main-content-gallery-img-first {
+  text-decoration: none;
+  background-image: url("../img/deep-earth.jpg");
+}
+
+.main-content-gallery-img-first:hover {
+  color: #000;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75071), rgba(255, 255, 255, 0.75071)), url("../img/deep-earth.jpg");
+}
+
+/* MAIN-CONTENT-GALLERY-IMG-SECOND */
+.main-content-gallery-img-second {
+  text-decoration: none;
+  background-image: url("../img/night-arcade.jpg");
+}
+
+.main-content-gallery-img-second:hover {
+  color: #000;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75071), rgba(255, 255, 255, 0.75071)), url("../img/night-arcade.jpg");
+}
+
+/* MAIN-CONTENT-GALLERY-IMG-THIRD */
+.main-content-gallery-img-third {
+  text-decoration: none;
+  background-image: url("../img/soccer-team-vr.jpg");
+}
+
+.main-content-gallery-img-third:hover {
+  color: #000;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75071), rgba(255, 255, 255, 0.75071)), url("../img/soccer-team-vr.jpg");
+}
+
+/* MAIN-CONTENT-GALLERY-IMG-FOURTH */
+.main-content-gallery-img-fourth {
+  text-decoration: none;
+  background-image: url("../img/the-grid.jpg");
+}
+
+.main-content-gallery-img-fourth:hover {
+  color: #000;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75071), rgba(255, 255, 255, 0.75071)), url("../img/the-grid.jpg");
+}
+
+/* MAIN-CONTENT-GALLERY-IMG-FIFTH */
+.main-content-gallery-img-fifth {
+  text-decoration: none;
+  background-image: url("../img/from-up-above-vr.jpg");
+}
+
+.main-content-gallery-img-fifth:hover {
+  color: #000;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75071), rgba(255, 255, 255, 0.75071)), url("../img/from-up-above-vr.jpg");
+}
+
+/* MAIN-CONTENT-GALLERY-IMG-SIXTH */
+.main-content-gallery-img-sixth {
+  text-decoration: none;
+  background-image: url("../img/pocket-borealis.jpg");
+}
+
+.main-content-gallery-img-sixth:hover {
+  color: #000;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75071), rgba(255, 255, 255, 0.75071)), url("../img/pocket-borealis.jpg");
+}
+
+/* MAIN-CONTENT-GALLERY-IMG-SEVENTH */
+.main-content-gallery-img-seventh {
+  text-decoration: none;
+  background-image: url("../img/the-curiosity.jpg");
+}
+
+.main-content-gallery-img-seventh:hover {
+  color: #000;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75071), rgba(255, 255, 255, 0.75071)), url("../img/the-curiosity.jpg");
+}
+
+/* MAIN-CONTENT-GALLERY-IMG-EIGHTH */
+.main-content-gallery-img-eighth {
+  text-decoration: none;
+  background-image: url("../img/make-it-fisheye.jpg");
+}
+
+.main-content-gallery-img-eighth:hover {
+  color: #000;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75071), rgba(255, 255, 255, 0.75071)), url("../img/make-it-fisheye.jpg");
+}
 
 /* SITE-FOOTER */
 .site-footer {
   padding-top: 44px;
-  padding-bottom: 44px;
+  padding-bottom: 33px;
   background-color: #000;
+  color: #fff;
 }
 
 .site-footer-top {
@@ -254,6 +395,13 @@ body {
   justify-content: space-between;
 }
 
+.site-logo-img-footer {
+  width: 144px;
+  height: 24px;
+  object-fit: cover;
+}
+
+/* Social networks */
 .site-footer-socials {
   display: flex;
   align-items: center;
@@ -280,6 +428,23 @@ body {
   margin-right: 16px;
 }
 
+.site-footer-item-link {
+  display: flex;
+  flex-direction: column;
+  border-bottom-color: #fff;
+  text-decoration: none;
+  padding-bottom: 6px;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.4s ease;
+}
+
+.site-footer-item-link:after {
+  width: 24px;
+  height: 2px;
+  background-color: transparent;
+  content: "";
+}
+
 .site-footer-bottom {
   display: flex;
   align-items: center;
@@ -288,6 +453,7 @@ body {
 }
 
 .site-footer-text {
+  margin-left: 20px;
   font-weight: 400;
   color: #fff;
   opacity: 0.5;
@@ -307,7 +473,35 @@ only screen and (                min-resolution: 2dppx) {
     background-image: url("../img/man-in-car@2x.jpg");
   }
 
-  .main-content-top-img {
-    background-image: url("../img/man-wearing-vr@2x.jpg");
+  .main-content-gallery-img-first {
+    background-image: url("../img/deep-earth@2x.jpg");
+  }
+
+  .main-content-gallery-img-second {
+    background-image: url("../img/night-arcade@2x.jpg");
+  }
+
+  .main-content-gallery-img-third {
+    background-image: url("../img/soccer-team-vr@2x.jpg");
+  }
+
+  .main-content-gallery-img-fourth {
+    background-image: url("../img/the-grid@2x.jpg");
+  }
+
+  .main-content-gallery-img-fifth {
+    background-image: url("../img/from-up-above-vr@2x.jpg");
+  }
+
+  .main-content-gallery-img-sixth {
+    background-image: url("../img/pocket-borealis@2x.jpg");
+  }
+
+  .main-content-gallery-img-seventh {
+    background-image: url("../img/the-curiosity@2x.jpg");
+  }
+
+  .main-content-gallery-img-eighth {
+    background-image: url("../img/make-it-fisheye@2x.jpg");
   }
 }
