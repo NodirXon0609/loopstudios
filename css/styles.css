@@ -42,6 +42,12 @@ img {
   box-sizing: inherit;
 }
 
+/* OUTLINE STYLES */
+*:focus {
+  outline: 2px dashed #7296ec;
+  outline-offset: 2px;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -95,6 +101,7 @@ body {
 
 .site-logo {
   display: flex;
+  flex-shrink: 0;
   margin-right: 32px;
   transition: opacity 0.4s ease;
 }
